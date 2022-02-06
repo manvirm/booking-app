@@ -7,6 +7,7 @@ import { useState } from 'react'
 function App() {
 
 const [showAddTask, setShowAddTask] = useState(false)
+const [tasks, setTasks] = useState([])
 
 //Add Task
 const addTask = (task) => {
@@ -36,7 +37,7 @@ const toggleReminder = (id) => {
         <Tasks tasks={tasks} onDelete={deleteTask}  
         onToggle={toggleReminder}/>
       ) : (
-        'No Tasks To Show'
+        'No Bookings To Show'
       )}
       
     </div>
