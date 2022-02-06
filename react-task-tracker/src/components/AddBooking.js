@@ -2,7 +2,7 @@ import {useState} from 'react'
 import DatePicker from 'react-date-picker'
 //import 'react-datepicker/dist/react-datepicker.css'
 
-const AddTask = ({ onAdd }) => {
+const AddBooking = ({ onAdd }) => {
     const [time, setTime] = useState('')
     const [hours, setHours] = useState('')
     const [reminder, setReminder] = useState(false)
@@ -15,7 +15,6 @@ const AddTask = ({ onAdd }) => {
             return
         }
         
-
         onAdd({ time, hours, reminder, selectedDate })
 
         setTime('')
@@ -55,4 +54,4 @@ const AddTask = ({ onAdd }) => {
 };
 
 
-export default AddTask;
+export default AddBooking;

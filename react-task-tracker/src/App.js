@@ -1,40 +1,40 @@
 //import './App.css';
 import React from 'react'
 import Header from './components/Header'
-import Tasks from './components/Tasks'
-import AddTask from './components/AddTask'
+import Bookings from './components/Bookings'
+import AddBooking from './components/AddBooking'
 import { useState } from 'react'
 function App() {
 
-const [showAddTask, setShowAddTask] = useState(false)
-const [tasks, setTasks] = useState([])
+const [showAddBooking, setShowAddBooking] = useState(false)
+const [bookings, setBookings] = useState([])
 
-//Add Task
-const addTask = (task) => {
+//Add Booking
+const addBooking = (booking) => {
   const id = Math.floor(Math.random() *10000) +1
-  const newTask = {id, ...task}
-  setTasks([...tasks, newTask])
+  const newBooking = {id, ...booking}
+  setBookings([...bookings, newBooking])
 }
 
-  //Delete Task
-const deleteTask = (id) => {
-  setTasks(tasks.filter((task) => task.id !== id))
+  //Delete Booking
+const deleteBooking = (id) => {
+  setBookings(bookings.filter((booking) => booking.id !== id))
 }
 
 // Toggle Reminder
 const toggleReminder = (id) => {
-  setTasks(tasks.map((task) => task.id === id ? {...task, reminder: 
-  !task.reminder} : task))
+  setBookings(bookings.map((booking) => booking.id === id ? {...booking, reminder: 
+  !booking.reminder} : booking))
 }
   //can only return a single element, 
   //every other element has to go inside of it
   return (
     <div className='container'>
-      <Header onAdd={() => setShowAddTask(!showAddTask)} 
-      showAdd={showAddTask}/>
-      {showAddTask && <AddTask onAdd={addTask}/>}
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask}  
+      <Header onAdd={() => setShowAddBooking(!showAddBooking)} 
+      showAdd={showAddBooking}/>
+      {showAddBooking && <AddBooking onAdd={addBooking}/>}
+      {bookings.length > 0 ? (
+        <Bookings bookings={bookings} onDelete={deleteBooking}  
         onToggle={toggleReminder}/>
       ) : (
         'No Bookings To Show'
